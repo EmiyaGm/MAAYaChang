@@ -1,0 +1,7 @@
+{
+    "点击": {
+        "recognition": "OCR",
+        "expected": "今日在拍",
+        "action": "Click"
+    }
+}
