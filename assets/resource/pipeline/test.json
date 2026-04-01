@@ -1,7 +1,86 @@
 {
-    "点击": {
-        "recognition": "OCR",
-        "expected": "今日在拍",
-        "action": "Click"
+    "雅昌页面识别": {
+        "next": [
+            "liveCheck",
+        ],
+        "timeout": -1
+    },
+    "refreshLiveCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "liveCheck"
+        ]
+    },
+    "refreshRoomCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "roomCheck"
+        ]
+    },
+    "refreshVideoCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "videoCheck"
+        ]
+    },
+    "backVideoCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "backVideoCheckAgain"
+        ]
+    },
+    "backVideoCheckAgain": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "liveCheck"
+        ]
+    },
+    "liveCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "roomCheck"
+        ],
+        "on_error": [
+            "refreshLiveCheck"
+        ]
+    },
+    "roomCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [
+            "videoCheck"
+        ],
+        "on_error": [
+            "refreshRoomCheck"
+        ]
+    },
+    "videoCheck": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "next": [],
+        "on_error": [
+            "videoWaitCheck"
+        ]
+    },
+    "videoWaitCheck": {
+        "recognition": "TemplateMatch",
+        "next": [
+            "refreshVideoCheck"
+        ],
+        "on_error": [
+            "videoOverCheck"
+        ]
+    },
+    "videoOverCheck": {
+        "recognition": "TemplateMatch",
+        "next": [
+            "backVideoCheck"
+        ]
     }
 }
